@@ -23,11 +23,11 @@ CORS(app) # aktifkan CORS di semua route
 
 
 # --- Init Firebase Admin ---
-cred = credentials.Certificate("final-project-f2032-firebase-adminsdk-fbsvc-374faa76da.json")
+cred = credentials.Certificate('firebase.json') # ini di isi dengan API key json anda 
 firebase_admin.initialize_app(cred)
 
 # Firebase Web API Key (ambil dari Firebase console > Project settings > General > Web API Key)
-FIREBASE_API_KEY = os.getenv("FIREBASE_API_KEY", "AIzaSyCkuYpZiiwgPI5ouuBseQUlYJWC3MdAt9Q")
+FIREBASE_API_KEY = os.getenv("FIREBASE_API_KEY", "--")
 
 db = firestore.client()
 
