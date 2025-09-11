@@ -7,17 +7,29 @@
 ## Repository Outline
 
 1. **README.md** – Project overview & documentation.  
-2. **notebooks/** – Jupyter Notebooks containing the complete ML pipeline: data loading, cleaning, EDA, feature engineering, regression modeling, NLP, computer vision, evaluation.  
-3. **data/** – Raw and processed fleet datasets (engine sensors, operational data, user feedback).  
-4. **models/** – Saved machine learning models:  
+2. **notebooks/** – Jupyter Notebooks for the ML pipeline (EDA, modeling, inference):
+   - `01_ModelCNN_Tire_Textures_EDA.ipynb` – EDA for tire textures (CV)
+   - `02_ModelCNN_Tire_Textures_Model.ipynb` – Model development (CV)
+   - `03_ModelCNN_Tire_Textures_Inf.ipynb` – Inference (CV)
+   - `final_project_RMT45_01.ipynb` – Main notebook (EDA, regression, NLP, CV)
+   - `final_project_RMT45_01_inference.ipynb` – Inference pipeline
+   - `Model_Classification.ipynb` – Classification model (CV)
+   - `Model_Classification_Inference.ipynb` – Inference (CV)
+3. **back-end/** – Backend API (Flask):
+   - `app.py` – API for model inference
+4. **front-end/** – Frontend web app (HTML/JS/CSS):
+   - `index.html` – Main page
+   - `assets/` – Static assets (images, CSS, JS, fonts)
+5. **images/** – Diagrams, flowcharts, dashboard screenshots (e.g., `flow_aplication.png`, `1.png`, `2.png`)
+6. **data/** – Raw and processed fleet datasets (engine sensors, operational data, user feedback).  
+7. **models/** – Saved machine learning models:  
    - `regression_model.pkl` – Predictive maintenance (engine/operational data).  
    - `nlp_model.pkl` – Complaint text classification.  
    - `cv_model.pkl` – Image-based vehicle condition classification.  
-5. **deployment/**  
+8. **deployment/**  
    - `preprocessing_pipeline.pkl` – Data preprocessing pipeline.  
    - `streamlit_app.py` – Frontend deployment (Streamlit/Hugging Face).  
    - `eda_app.py` – EDA & visualization app.  
-6. **images/** – Diagrams, flowcharts, dashboard screenshots.  
 
 ---
 
@@ -59,18 +71,35 @@ By combining engine sensor data, operational load information, and user feedback
 
 ---
 
+
 ## System Flow
+![System Flow](images/flowchart.png)
 
-![System Flow](images/system_flow.png)
+**System Flow Overview:**
 
-**Steps:**  
-1. Div. Armada provides engine sensor data.  
-2. Div. Operasional provides load, route, and historical maintenance data.  
-3. Predictive regression model assesses vehicle condition.  
-4. Dashboard generates alerts.  
-5. If “Investigation” → NLP (complaint text) & CV (image data).  
-6. If “Maintenance” → send vehicle to workshop.  
-7. If “Good” → update status and continue operation.  
+1. **Data Input:**
+   - *Div. Armada* uploads engine sensor data (temperature, tire pressure, usage hours, vibration, battery, etc).
+   - *Div. Operasional* uploads operational data (load, route, maintenance history).
+   - *User* submits feedback (complaint text, images).
+
+2. **Preprocessing:**
+   - Data is cleaned and transformed using the preprocessing pipeline.
+
+3. **Prediction:**
+   - **Regression Model:** Predicts vehicle condition (Good / Investigate / Maintenance).
+   - If result is **Investigate**:
+     - **NLP Model:** Classifies complaint text for potential issues.
+     - **CV Model:** Classifies uploaded images for physical condition.
+
+4. **Dashboard & Alerts:**
+   - Results are displayed on the dashboard (frontend web app / Streamlit).
+   - Alerts and recommendations are generated (e.g., send to workshop, update status).
+
+5. **Action:**
+   - If "Maintenance" → vehicle is sent to workshop.
+   - If "Good" → status is updated, vehicle continues operation.
+
+**See `images/flow_aplication.png` for the detailed flowchart.**
 
 ---
 
@@ -98,7 +127,6 @@ By combining engine sensor data, operational load information, and user feedback
 ## Additional References
 
 - [Hugging Face App – MCKY](https://huggingface.co/spaces/HelasOn7/fe-finpro)  
-- [Google Colab Hacktiv8 ML Problem Framing](https://colab.research.google.com/github/FTDS-learning-materials/phase-1/blob/v2.3/w1/P1W1D1PM%20-%20Machine%20Learning%20Problem%20Framing%20-%20Training.ipynb)  
 
  
 
@@ -110,3 +138,6 @@ By combining engine sensor data, operational load information, and user feedback
 
 For questions or collaboration:  
 **Hafiz Alfariz** – [LinkedIn](https://www.linkedin.com/in/hafizalfariz/) | [GitHub](https://github.com/hafizalfariz)
+
+**Fhad Saleh** - [LinkedIn](https://www.linkedin.com/in/fhad-saleh-5b4761168/) | [GitHub](https://github.com/helason7)
+
