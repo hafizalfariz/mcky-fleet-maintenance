@@ -20,8 +20,7 @@
 4. **front-end/** – Frontend web app (HTML/JS/CSS):  
    - `index.html` – Main page  
    - `assets/` – Static assets (images, CSS, JS, fonts)  
-5. **images/** – Diagrams, flowcharts, dashboard screenshots (e.g., `flow_application.png`, `1.png`, `2.png`)  
-6. **data/** – Raw and processed fleet datasets (engine sensors, operational data, user feedback).  
+5. **images/** – Diagrams, flowcharts, dashboard screenshots (e.g., `flow_application.png`, `1.png`, `2.png`) 
 
 ---
 
@@ -138,5 +137,6 @@ For questions or collaboration:
 **Hafiz Alfariz** – [LinkedIn](https://www.linkedin.com/in/hafizalfariz/) | [GitHub](https://github.com/hafizalfariz)  
 **Fhad Saleh** – [LinkedIn](https://www.linkedin.com/in/fhad-saleh-5b4761168/) | [GitHub](https://github.com/helason7)
 **Rivaldi Revin** – [LinkedIn](--) | [GitHub](https://github.com/RivaldiR)
+
 **Bagus Dwira Palguna** – [LinkedIn](--) | [GitHub](https://github.com/baguspalguna)
 ---
