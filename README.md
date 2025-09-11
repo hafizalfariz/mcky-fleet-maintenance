@@ -100,9 +100,10 @@ By combining engine sensor data, operational load information, and user feedback
 - [Hugging Face App – MCKY](https://huggingface.co/spaces/HelasOn7/fe-finpro)  
 - [Google Colab Hacktiv8 ML Problem Framing](https://colab.research.google.com/github/FTDS-learning-materials/phase-1/blob/v2.3/w1/P1W1D1PM%20-%20Machine%20Learning%20Problem%20Framing%20-%20Training.ipynb)  
 
-![Dashboard Screenshot](images/dashboard.png)  
-![Prediction Screenshot](images/prediction.png)  
+ 
 
+![Dashboard Screenshot](images/1.png)
+![Homepage](images/2.png)
 ---
 
 ## Contact
