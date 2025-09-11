@@ -134,9 +134,12 @@ MCKY (Maintenance Check and Safety) is a fleet maintenance and safety inspection
 ## Contact
 
 For questions or collaboration:  
-**Hafiz Alfariz** – [LinkedIn](https://www.linkedin.com/in/hafizalfariz/) | [GitHub](https://github.com/hafizalfariz)  
-**Fhad Saleh** – [LinkedIn](https://www.linkedin.com/in/fhad-saleh-5b4761168/) | [GitHub](https://github.com/helason7)
-**Rivaldi Revin** – [LinkedIn](--) | [GitHub](https://github.com/RivaldiR)
+**Hafiz Alfariz** – [LinkedIn](https://www.linkedin.com/in/hafizalfariz/) | [GitHub](https://github.com/hafizalfariz)
 
-**Bagus Dwira Palguna** – [LinkedIn](--) | [GitHub](https://github.com/baguspalguna)
+**Fhad Saleh** – [LinkedIn](https://www.linkedin.com/in/fhad-saleh-5b4761168/) | [GitHub](https://github.com/helason7)
+
+**Rivaldi Revin** – [LinkedIn](https://www.linkedin.com/in/rivaldi-revin/) | [GitHub](https://github.com/RivaldiR)
+
+**Bagus Dwira Palguna** – [LinkedIn](https://www.linkedin.com/in/bagus-palguna-88a689158/) | [GitHub](https://github.com/baguspalguna)
+
 ---
