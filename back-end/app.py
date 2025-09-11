@@ -37,7 +37,7 @@ model_cnn = load_model('gru_glove_improved_model.keras')
 
 df = pd.read_csv('logistics.csv')
 
-
+    
 # API: Jumlah maintenance_cost per bulan berdasarkan last_maintenance_date
 @app.route('/monthly-maintenance-cost', methods=['GET'])
 def monthly_maintenance_cost():
@@ -457,7 +457,7 @@ def maintenanceVehicle():
         predict = predict_classification(data)
         print("Predictive Score: ", predict)
         if predict == False:
-            return jsonify({"message": "Error in prediction"}), 500
+            return jsonify({"message": "predict_classification == False"}), 500
         
         maintenance_ref = db.collection("maintenance").document()
         updatevehicle = updateStatusMaintenance(vehicle_id, predict)
@@ -993,14 +993,14 @@ def feature_creation(df):
 
 # API: Inference model best_model_classification.pkl dengan preprocessing sesuai feature engineering notebook
 # @app.route('/predict-classification', methods=['POST'])
-def predict_classification(data_input):
-    # print("Received input data:", data_input) #aman
+def predict_classification(data):
+    print("Received input data:", data, flush=True) #aman
     # pass
     try:
         # Load pipeline model (sudah termasuk preprocessor dan XGBoost)
         model = joblib.load('best_model_classification.pkl')
 
-        data = request.json
+        # data = request.json
         # Konversi setiap value menjadi list agar bisa diproses ke DataFrame
         data = {
             "Make_and_Model": [data.get("vehicle_type")],

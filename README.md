@@ -7,36 +7,27 @@
 ## Repository Outline
 
 1. **README.md** – Project overview & documentation.  
-2. **notebooks/** – Jupyter Notebooks for the ML pipeline (EDA, modeling, inference):
-   - `01_ModelCNN_Tire_Textures_EDA.ipynb` – EDA for tire textures (CV)
-   - `02_ModelCNN_Tire_Textures_Model.ipynb` – Model development (CV)
-   - `03_ModelCNN_Tire_Textures_Inf.ipynb` – Inference (CV)
-   - `final_project_RMT45_01.ipynb` – Main notebook (EDA, regression, NLP, CV)
-   - `final_project_RMT45_01_inference.ipynb` – Inference pipeline
-   - `Model_Classification.ipynb` – Classification model (CV)
-   - `Model_Classification_Inference.ipynb` – Inference (CV)
-3. **back-end/** – Backend API (Flask):
-   - `app.py` – API for model inference
-4. **front-end/** – Frontend web app (HTML/JS/CSS):
-   - `index.html` – Main page
-   - `assets/` – Static assets (images, CSS, JS, fonts)
-5. **images/** – Diagrams, flowcharts, dashboard screenshots (e.g., `flow_aplication.png`, `1.png`, `2.png`)
+2. **notebooks/** – Jupyter Notebooks for the ML pipeline (EDA, modeling, inference):  
+   - 01_ModelCNN_Tire_Textures_EDA.ipynb – EDA for tire textures (CV)  
+   - 02_ModelCNN_Tire_Textures_Model.ipynb – Model development (CV)  
+   - 03_ModelCNN_Tire_Textures_Inf.ipynb – Inference (CV)  
+   - final_project_RMT45_01.ipynb – Main notebook (EDA, regression, NLP, CV)  
+   - final_project_RMT45_01_inference.ipynb – Inference pipeline  
+   - Model_Classification.ipynb – Classification model (CV)  
+   - Model_Classification_Inference.ipynb – Inference (CV)  
+3. **back-end/** – Backend API (Flask):  
+   - `app.py` – API for model inference  
+4. **front-end/** – Frontend web app (HTML/JS/CSS):  
+   - `index.html` – Main page  
+   - `assets/` – Static assets (images, CSS, JS, fonts)  
+5. **images/** – Diagrams, flowcharts, dashboard screenshots (e.g., `flow_application.png`, `1.png`, `2.png`)  
 6. **data/** – Raw and processed fleet datasets (engine sensors, operational data, user feedback).  
-7. **models/** – Saved machine learning models:  
-   - `regression_model.pkl` – Predictive maintenance (engine/operational data).  
-   - `nlp_model.pkl` – Complaint text classification.  
-   - `cv_model.pkl` – Image-based vehicle condition classification.  
-8. **deployment/**  
-   - `preprocessing_pipeline.pkl` – Data preprocessing pipeline.  
-   - `streamlit_app.py` – Frontend deployment (Streamlit/Hugging Face).  
-   - `eda_app.py` – EDA & visualization app.  
 
 ---
 
 ## Problem Background
 
-Fleet management in logistics companies faces high operational costs due to unexpected vehicle breakdowns and inefficient maintenance scheduling.  
-By combining engine sensor data, operational load information, and user feedback, predictive models can anticipate potential failures, reduce downtime, and improve overall fleet safety.
+MCKY (Maintenance Check and Safety) is a fleet maintenance and safety inspection system designed to ensure that every truck is in proper operating condition before being deployed. The system encompasses routine maintenance, technical inspections, and comprehensive safety checks, allowing potential issues to be detected early and directing any problematic vehicles to undergo necessary repairs. Through the implementation of MCKY, the company can ensure that its operational fleet remains in optimal, safe, and compliant condition, while also maintaining operational efficiency, workplace safety, and service reliability for customers.
 
 ---
 
@@ -44,20 +35,27 @@ By combining engine sensor data, operational load information, and user feedback
 
 - **Predictive Maintenance Model (Regression):** Classifies vehicle condition → Good / Needs Investigation / Needs Maintenance.  
 - **NLP Model:** Processes user complaints (text) to identify potential mechanical issues.  
-- **Computer Vision Model:** Classifies image-based input (vehicle/battery/engine condition) from users.  
+- **Computer Vision Model:** Classifies image-based input (tire condition) from users.  
 - **Dashboard:** Provides alerts and recommendations (go to mechanic or update status).  
 - **Deployed Web App:** Interactive prediction and EDA hosted on [Hugging Face](https://huggingface.co/spaces/HelasOn7/fe-finpro).  
 
 ---
 
 ## Data
+  
+**Dataset List:**
 
-- **Source**: Logistics Vehicle Maintenance Dataset (Kaggle) & simulated user complaint/image data.  
-- **Features**:  
-  - **Engine/Sensor Data (Div. Armada):** Engine temperature, tire pressure, usage hours, vibration levels, battery status, vehicle info.  
-  - **Operational Data (Div. Operasional):** Actual load, route info, historical maintenance, last maintenance date.  
-  - **User Feedback:** Complaint texts, uploaded images.  
-- **Target:** Maintenance status → Good / Investigate / Maintenance required.  
+- [NHTSA Customer Complaints](https://www.kaggle.com/datasets/alshival/nhtsa-complaints?select=complaints.csv)
+- [Tyre Type](https://www.kaggle.com/datasets/anamibnjafar0/tyretype)
+- [Logistics Vehicle Maintenance](https://www.kaggle.com/datasets/datasetengineer/logistics-vehicle-maintenance-history-data)
+- [Tire Texture](https://www.kaggle.com/datasets/680b9e2d7fc89cb1616f5c64d6a0af1b48e2aa3187559c38d)
+
+**Features:**
+- **Engine/Sensor Data:** Engine temperature, tire pressure, usage hours, vibration levels, battery status, vehicle info.
+- **Operational Data:** Actual load, route info, historical maintenance, last maintenance date.
+- **User Feedback:** Complaint texts, uploaded images.
+
+**Target:** Maintenance status → Good / Needs Investigation / Needs Maintenance.
 
 ---
 
@@ -71,48 +69,44 @@ By combining engine sensor data, operational load information, and user feedback
 
 ---
 
-
 ## System Flow
+
 ![System Flow](images/flowchart.png)
 
 **System Flow Overview:**
 
-1. **Data Input:**
-   - *Div. Armada* uploads engine sensor data (temperature, tire pressure, usage hours, vibration, battery, etc).
-   - *Div. Operasional* uploads operational data (load, route, maintenance history).
-   - *User* submits feedback (complaint text, images).
+1. **Data Input:**  
+   - *Div. Armada* uploads engine sensor data (temperature, tire pressure, usage hours, vibration, battery, etc).  
+   - *Div. Operasional* uploads operational data (load, route, maintenance history).  
+   - *User* submits feedback (complaint text, images).  
+2. **Preprocessing:**  
+   - Data is cleaned and transformed using the preprocessing pipeline.  
+3. **Prediction:**  
+   - **Regression Model:** Predicts vehicle condition (Good / Needs Investigation / Needs Maintenance).  
+   - If result is **Needs Investigation**:  
+     - **NLP Model:** Classifies complaint text for potential issues.  
+     - **CV Model:** Classifies uploaded images for physical condition.  
+4. **Dashboard & Alerts:**  
+   - Results are displayed on the dashboard (frontend web app / Streamlit).  
+   - Alerts and recommendations are generated (e.g., send to workshop, update status).  
+5. **Action:**  
+   - If "Needs Maintenance" → vehicle is sent to workshop.  
+   - If "Good" → status is updated, vehicle continues operation.  
 
-2. **Preprocessing:**
-   - Data is cleaned and transformed using the preprocessing pipeline.
-
-3. **Prediction:**
-   - **Regression Model:** Predicts vehicle condition (Good / Investigate / Maintenance).
-   - If result is **Investigate**:
-     - **NLP Model:** Classifies complaint text for potential issues.
-     - **CV Model:** Classifies uploaded images for physical condition.
-
-4. **Dashboard & Alerts:**
-   - Results are displayed on the dashboard (frontend web app / Streamlit).
-   - Alerts and recommendations are generated (e.g., send to workshop, update status).
-
-5. **Action:**
-   - If "Maintenance" → vehicle is sent to workshop.
-   - If "Good" → status is updated, vehicle continues operation.
-
-**See `images/flow_aplication.png` for the detailed flowchart.**
+**See `images/flow_application.png` for the detailed flowchart.**
 
 ---
 
 ## Stacks
 
-- **Python 3.x**  
-- Jupyter Notebook  
-- Pandas, NumPy  
-- Scikit-learn, XGBoost, LightGBM  
-- TensorFlow / PyTorch (for NLP & CV)  
-- Matplotlib, Seaborn, Plotly  
-- Streamlit (deployment)  
-- Hugging Face Spaces (app hosting)  
+- **Python 3.x** – Main programming language  
+- **Jupyter Notebook** – Data exploration and modeling  
+- **Pandas, NumPy** – Data processing  
+- **Scikit-learn, XGBoost, LightGBM** – Machine learning  
+- **TensorFlow / PyTorch** – Deep learning (NLP & CV)  
+- **Matplotlib, Seaborn, Plotly** – Visualization  
+- **Streamlit** – Deployment  
+- **Hugging Face Spaces** – App hosting  
 
 ---
 
@@ -126,18 +120,23 @@ By combining engine sensor data, operational load information, and user feedback
 
 ## Additional References
 
-- [Hugging Face App – MCKY](https://huggingface.co/spaces/HelasOn7/fe-finpro)  
+- [Hugging Face App – MCKY](https://huggingface.co/spaces/HelasOn7/fe-finpro)
 
- 
 
-![Dashboard Screenshot](images/1.png)
-![Homepage](images/2.png)
+## Hugging Face Dashboard
+![User Login](images/0.png)
+![Home_Page](images/1.png)  
+![Eda Dasboard](images/2.png)
+![Vehicle data imputasi](images/3.png)
+![all issue Reports](images/4.png)
+![All Tires Report](images/5.png)
 ---
 
 ## Contact
 
 For questions or collaboration:  
-**Hafiz Alfariz** – [LinkedIn](https://www.linkedin.com/in/hafizalfariz/) | [GitHub](https://github.com/hafizalfariz)
-
-**Fhad Saleh** - [LinkedIn](https://www.linkedin.com/in/fhad-saleh-5b4761168/) | [GitHub](https://github.com/helason7)
-
+**Hafiz Alfariz** – [LinkedIn](https://www.linkedin.com/in/hafizalfariz/) | [GitHub](https://github.com/hafizalfariz)  
+**Fhad Saleh** – [LinkedIn](https://www.linkedin.com/in/fhad-saleh-5b4761168/) | [GitHub](https://github.com/helason7)
+**Rivaldi Revin** – [LinkedIn](--) | [GitHub](https://github.com/RivaldiR)
+**Bagus Dwira Palguna** – [LinkedIn](--) | [GitHub](https://github.com/baguspalguna)
+---
