@@ -60,7 +60,7 @@ MCKY (Maintenance Check and Safety) is a fleet maintenance and safety inspection
 
 ## Method
 
-- **Regression Models** – Predict vehicle condition based on numerical and categorical features.  
+- **Classification Models** – Predict whether the vehicle need maintenance or not, based on vehicle condition and usage data.  
 - **NLP Models** – Text classification for complaint data.  
 - **Computer Vision Models** – Image classification for physical damage/condition reports.  
 - **Dashboard Integration** – Centralized platform showing alerts and recommended actions.  
@@ -140,6 +140,6 @@ For questions or collaboration:
 
 **Rivaldi Revin** – [LinkedIn](https://www.linkedin.com/in/rivaldi-revin/) | [GitHub](https://github.com/RivaldiR)
 
-**Bagus Dwira Palguna** – [LinkedIn](https://www.linkedin.com/in/bagus-palguna-88a689158/) | [GitHub](https://github.com/baguspalguna)
+**Bagus Dwira Palguna** – [LinkedIn](https://www.https://www.linkedin.com/in/bagus-d-palguna/) | [GitHub](https://github.com/baguspalguna)
 
 ---
