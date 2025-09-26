@@ -140,6 +140,6 @@ For questions or collaboration:
 
 **Rivaldi Revin** – [LinkedIn](https://www.linkedin.com/in/rivaldi-revin/) | [GitHub](https://github.com/RivaldiR)
 
-**Bagus Dwira Palguna** – [LinkedIn](https://www.https://www.linkedin.com/in/bagus-d-palguna/) | [GitHub](https://github.com/baguspalguna)
+**Bagus Dwira Palguna** – [LinkedIn](https://www.linkedin.com/in/bagus-d-palguna/) | [GitHub](https://github.com/baguspalguna)
 
 ---
