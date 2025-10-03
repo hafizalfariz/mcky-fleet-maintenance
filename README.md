@@ -11,8 +11,8 @@
    - 01_ModelCNN_Tire_Textures_EDA.ipynb – EDA for tire textures (CV)  
    - 02_ModelCNN_Tire_Textures_Model.ipynb – Model development (CV)  
    - 03_ModelCNN_Tire_Textures_Inf.ipynb – Inference (CV)  
-   - final_project_RMT45_01.ipynb – Main notebook (EDA, regression, NLP, CV)  
-   - final_project_RMT45_01_inference.ipynb – Inference pipeline  
+   - NLP.ipynb – Main notebook (EDA, regression, NLP, CV)  
+   - NLP_inference.ipynb – NLP Inference pipeline  
    - Model_Classification.ipynb – Classification model (CV)  
    - Model_Classification_Inference.ipynb – Inference (CV)  
 3. **back-end/** – Backend API (Flask):  
